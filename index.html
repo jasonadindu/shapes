@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shape Factory</title>
-  <script src="./assets/script/clock.js" defer></script>
-  <link rel="stylesheet" href="./assets/style/style/">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+  <script src="./assets/scripts/shapes.js" defer></script>
+  <link rel="stylesheet" href="./assets/style/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 </head>
-<body>
 
-  
+<body>
+  <div class="container">
+    <div class="content">
+      <h1>Shape Factory</h1>
+      <div class="inputs">
+        <label for="shape">Select Shape</label><select name="shapes" id="shape">
+          <option value="circle">Circle</option>
+          <option value="square">Square</option>
+        </select>
+        <label for="color">Select Color</label><select name="colors" id="color">
+          <option value="blue">Blue</option>
+          <option value="green">Green</option>
+          <option value="orange">Orange</option>
+          <option value="pink">Pink</option>
+          <option value="purple">Purple</option>
+        </select>
+        <input type="button" value="Create" class="create">
+      </div>
+      <div class="grid">
+
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>
