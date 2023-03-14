@@ -32,10 +32,12 @@ h1 {
   text-align: center;
 }
 
+
 .inputs label {
-  padding: 25px;
+  padding: 20px;
   color: #fff;
   font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .inputs select {
@@ -43,8 +45,10 @@ h1 {
   color: #fff;
   border-radius: 5px;
   width: 11%;
+  min-width: 55px;
   height: 35px;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .inputs input[type=button] {
