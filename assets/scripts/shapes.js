@@ -12,6 +12,7 @@ let typeSel = document.getElementById('shape');
 let colorSel = document.getElementById('color');
 const grid = document.querySelector('.grid');
 const create = document.querySelector('.create');
+const infor = document.querySelector('.info');
 
 
 class Shape {
@@ -32,14 +33,23 @@ class Shape {
 const shapesArr = [];
 
 function createShape(type, color) {
-  const shape = new Shape(type, color);
-  shapesArr.push(shape);
-  let div = document.createElement("div");
-  div.className = 'col'
-  grid.append(div);
-  div.style.backgroundColor = shape.color;
-  div.style.borderRadius = shape.type;
-  console.log(shapesArr);
+  if (shapesArr.length < 24) {
+    const shape = new Shape(type, color);
+    shapesArr.push(shape);
+    let div = document.createElement("div");
+    div.className = shapesArr.length;
+    grid.append(div);
+    div.style.backgroundColor = shape.color;
+    div.style.borderRadius = shape.type;
+  } else {
+    infor.innerText = 'No more room!'
+  }
+}
+
+function getInfo(shape) {
+  let color = colorName(shapesArr[shape].color);
+  let type = shapeName(shapesArr[shape].type);
+  return `Unit ${shape}: ${color} ${type}`
 }
 
 function setColor(color) {
@@ -50,10 +60,23 @@ function setColor(color) {
   if (color === 'purple') { return '#90f' }
 }
 
+function colorName(color) {
+  if (color === '#0f9') { return 'Blue' }
+  if (color === '#9f0') { return 'Green' }
+  if (color === '#f90') { return 'Orange' }
+  if (color === '#f09') { return 'Pink' }
+  if (color === '#90f') { return 'Purple' }
+}
+
+function shapeName(type) {
+  if (type === '100%') { return 'Circle' }
+  if (type === '25%') { return 'Square' }
+}
+
 create.addEventListener('click', () => {
   let color = colorSel.value;
   let type = typeSel.options[typeSel.selectedIndex].value;
-  if(type === 'circle') {
+  if (type === 'circle') {
     type = '100%';
     color = setColor(color);
 
@@ -62,7 +85,16 @@ create.addEventListener('click', () => {
     color = setColor(color);
   }
   createShape(type, color);
+  console.log(shapesArr);
 });
+
+grid.addEventListener('click', function (event) {
+  let num = event.target.className;
+  if (num < 24) {
+    infor.innerText = getInfo(num-1);
+  }
+});
+
 
 /* 
   for (let i = 0; i < 23; i++)
