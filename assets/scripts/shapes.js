@@ -90,7 +90,7 @@ create.addEventListener('click', () => {
 
 grid.addEventListener('click', function (event) {
   let num = event.target.className;
-  if (num < 24) {
+  if (num <= 24) {
     infor.innerText = getInfo(num-1);
   }
 });
